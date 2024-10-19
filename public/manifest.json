@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Screenshot Chat",
+  "version": "1.1",
+  "description": "Take screenshots, select areas, and chat with them using GPT-4-vision API",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "take_screenshot": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Take a screenshot"
+    }
+  }
+}
